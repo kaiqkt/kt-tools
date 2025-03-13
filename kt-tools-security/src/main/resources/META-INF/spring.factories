@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.kaiqkt.kt.tools.security.configs.SecurityAutoConfig

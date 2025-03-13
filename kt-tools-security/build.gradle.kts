@@ -2,6 +2,11 @@ plugins {
     kotlin("jvm") version "2.1.10"
 }
 
+dependencies {
+    implementation("org.springframework.boot:spring-boot-starter-security:3.4.3")
+    implementation("com.auth0:java-jwt:4.4.0")
+}
+
 publishing {
     repositories {
         maven {
