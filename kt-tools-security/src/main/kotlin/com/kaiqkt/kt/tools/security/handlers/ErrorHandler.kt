@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler
 @ControllerAdvice
 class ExceptionHandlerAdvice {
     @ExceptionHandler(AccessDeniedException::class)
-    fun handleAccessDeniedException(e: AccessDeniedException?): ResponseEntity<*> {
+    fun handleAccessDeniedException(e: AccessDeniedException): ResponseEntity<*> {
         val error = Error(ErrorType.ACCESS_DENIED, "You are not authorized to view this resource.")
         return ResponseEntity.status(HttpStatus.FORBIDDEN).body(error)
     }

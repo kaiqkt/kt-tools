@@ -1,5 +1,10 @@
 plugins {
-    kotlin("jvm") version "2.1.10"
+    kotlin("jvm") version "1.9.25"
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 dependencies {
@@ -11,7 +16,7 @@ publishing {
     repositories {
         maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/kaiqkt/springtools")
+            url = uri("https://maven.pkg.github.com/kaiqkt/kt-tools")
             credentials {
                 username = project.findProperty("gpr.user") as String? ?: System.getenv("GPR_USER")
                 password = project.findProperty("gpr.key") as String? ?: System.getenv("GPR_API_KEY")
