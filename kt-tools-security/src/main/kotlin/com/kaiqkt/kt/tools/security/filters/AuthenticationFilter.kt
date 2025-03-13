@@ -30,7 +30,7 @@ class AuthenticationFilter(
             val authentication = token.takeIf { it.isNotEmpty() }?.let {
                 when {
                     it.startsWith("Bearer ") -> authenticationHandler.handleAccessToken(it.removePrefix("Bearer "))
-                    else -> authenticationHandler.handleAccessToken(it)
+                    else -> authenticationHandler.handleApiKey(it)
                 }
             } ?: authenticationHandler.handlePublicAccess()
 
