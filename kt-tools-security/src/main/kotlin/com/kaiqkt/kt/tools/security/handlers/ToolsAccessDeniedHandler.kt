@@ -10,7 +10,7 @@ import org.springframework.security.web.access.AccessDeniedHandler
 import org.springframework.stereotype.Component
 
 @Component
-class ErrorHandler() : AccessDeniedHandler {
+class ToolsAccessDeniedHandler() : AccessDeniedHandler {
     override fun handle(request: HttpServletRequest, response: HttpServletResponse, accessDeniedException: AccessDeniedException) {
         val error = Error(ErrorType.ACCESS_DENIED, "You are not authorized to view this resource.")
         response.status = HttpStatus.FORBIDDEN.value()

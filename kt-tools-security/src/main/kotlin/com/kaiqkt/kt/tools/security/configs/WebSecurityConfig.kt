@@ -1,7 +1,7 @@
 package com.kaiqkt.kt.tools.security.configs
 
 import com.kaiqkt.kt.tools.security.filters.AuthenticationFilter
-import com.kaiqkt.kt.tools.security.handlers.ErrorHandler
+import com.kaiqkt.kt.tools.security.handlers.ToolsAccessDeniedHandler
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity
@@ -16,7 +16,7 @@ import org.springframework.security.web.access.intercept.AuthorizationFilter
 @EnableMethodSecurity(prePostEnabled = true)
 open class WebSecurityConfig(
     private val authenticationFilter: AuthenticationFilter,
-    private val exceptionHandler: ErrorHandler
+    private val exceptionHandler: ToolsAccessDeniedHandler
 ) {
 
     @Bean
