@@ -1,7 +1,6 @@
 package com.kaiqkt.kt.tools.security.configs
 
 import com.kaiqkt.kt.tools.security.filters.AuthenticationFilter
-import com.kaiqkt.kt.tools.security.handlers.AccessDeniedHandlerImpl
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity
@@ -15,8 +14,7 @@ import org.springframework.security.web.access.intercept.AuthorizationFilter
 @EnableWebSecurity
 @EnableMethodSecurity(prePostEnabled = true)
 open class WebSecurityConfig(
-    private val authenticationFilter: AuthenticationFilter,
-    private val accessDeniedHandlerImpl: AccessDeniedHandlerImpl
+    private val authenticationFilter: AuthenticationFilter
 ) {
 
     @Bean
@@ -30,9 +28,6 @@ open class WebSecurityConfig(
             authRequest.requestMatchers(*Companion.PATH_MATCHERS).permitAll().anyRequest().authenticated()
         }
         httpSecurity.addFilterBefore(authenticationFilter, AuthorizationFilter::class.java)
-        httpSecurity.exceptionHandling { exceptionHandling ->
-            exceptionHandling.accessDeniedHandler(accessDeniedHandlerImpl)
-        }
 
         return httpSecurity.build()
     }
