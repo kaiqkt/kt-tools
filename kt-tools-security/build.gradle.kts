@@ -29,7 +29,7 @@ publishing {
             from(components["kotlin"])
             groupId = "com.kaiqkt"
             artifactId = "kt-tools-security"
-            version = "1.0.5"
+            version = "1.0.6"
         }
     }
 }
